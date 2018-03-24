@@ -9,21 +9,21 @@ main()
 	loop:
 	
 	int q;
-	puts("Введите кол-во чисел, которые вы хотите ввести: ");
+	puts("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ С‡РёСЃРµР», РєРѕС‚РѕСЂС‹Рµ РІС‹ С…РѕС‚РёС‚Рµ РІРІРµСЃС‚Рё: ");
 	scanf("%i", &q);
 	
 	int array[q];
-	puts("Введите числа: ");
+	puts("Р’РІРµРґРёС‚Рµ С‡РёСЃР»Р°: ");
 	for(int i = 0; i < q; i++)		scanf("%i", array + i);
 	
 	int delta;
-	puts("Введите кол-во перестановок: ");
+	puts("Р’РІРµРґРёС‚Рµ РєРѕР»-РІРѕ РїРµСЂРµСЃС‚Р°РЅРѕРІРѕРє: ");
 	scanf("%i", &delta);
 	
 	if(delta >  q)	goto loop;
 	
 	int direction;
-	puts("Введите направление(1 - влево или 2 - вправо): ");
+	puts("Р’РІРµРґРёС‚Рµ РЅР°РїСЂР°РІР»РµРЅРёРµ(1 - РІР»РµРІРѕ РёР»Рё 2 - РІРїСЂР°РІРѕ): ");
 	scanf("%d", &direction);
 	
 	if((direction != 1) && (direction != 2))	goto loop;
@@ -33,13 +33,13 @@ main()
 	if(direction == 2)
 	{
 		for(int i = 0; i < delta; i++)		*(array_delta + i) = *(array + q - delta + i);
-		for(int i = q;i > 0; i--)			*(array + i) = *(array + i - delta);
+		for(int i = q;i > 0; i--)		*(array + i) = *(array + i - delta);
 		for(int i = 0; i < delta ;i++)		*(array + i) = *(array_delta + i);
 	}
 	else
 	{
-		for(int i = 0; i < delta ; i++)				*(array_delta + i) = *(array + i);
-		for(int i = 0; i < q ;i++)					*(array + i) = *(array + i + delta);
+		for(int i = 0; i < delta ; i++)			*(array_delta + i) = *(array + i);
+		for(int i = 0; i < q ;i++)			*(array + i) = *(array + i + delta);
 		for(int i = q; i > q - delta - 1;i--)		*(array + i) = *(array_delta + q - i - 1);
 	}
 	
